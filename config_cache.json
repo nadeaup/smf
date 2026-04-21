@@ -1,0 +1,413 @@
+{
+  "community": "name for snmp community strong",
+  "firestoreProject": "firestore projectid",
+  "ElectricityCostPerKWh": 0.18,
+  "solarBonusThreshold": 700,
+  "snmpPort": 161,
+  "apiKey": "api key for weather",
+  "solarBonusVolts": 0.55,
+  "latitude": 41.999999,
+  "override": {
+    "until": 0,
+    "targetGroup": "M",
+    "active": false
+  },
+  "timers": {
+    "pduRefreshMin": 3,
+    "actionIntervalMin": 30,
+    "overrideCheckMin": 1,
+    "firestoreSyncMin": 5,
+    "weatherUpdateMin": 60
+  },
+  "firestoreKeyPath": "/pathto/smf/firestore.key.file",
+  "longitude": -73.999999,
+  "powerActionRules": [
+    {
+      "powerGroupsOn": [],
+      "name": "CRITICAL SAFETY",
+      "powerGroupsOff": [
+        "L",
+        "M",
+        "H",
+        "F"
+      ],
+      "timeCondition": "",
+      "batteryVoltageCondition": "<=51.6"
+    },
+    {
+      "powerGroupsOn": [
+        "L",
+        "M",
+        "H",
+        "F"
+      ],
+      "name": "DAY FULL SOLAR+",
+      "powerGroupsOff": [],
+      "timeCondition": "daytime",
+      "batteryVoltageCondition": ">=54.1"
+    },
+    {
+      "batteryVoltageCondition": ">=53.6",
+      "timeCondition": "daytime",
+      "powerGroupsOff": [
+        "F"
+      ],
+      "name": "DAY HIGH",
+      "powerGroupsOn": [
+        "L",
+        "M",
+        "H"
+      ]
+    },
+    {
+      "batteryVoltageCondition": ">=53.0",
+      "timeCondition": "daytime",
+      "name": "DAY MODERATE",
+      "powerGroupsOn": [
+        "L",
+        "M"
+      ],
+      "powerGroupsOff": [
+        "H",
+        "F"
+      ]
+    },
+    {
+      "powerGroupsOff": [
+        "M",
+        "H",
+        "F"
+      ],
+      "name": "MINIMAL SUSTAIN - 24/7 BANKERS",
+      "powerGroupsOn": [
+        "L"
+      ],
+      "batteryVoltageCondition": ">=52.0",
+      "timeCondition": ""
+    },
+    {
+      "batteryVoltageCondition": "",
+      "timeCondition": "",
+      "powerGroupsOff": [
+        "L",
+        "M",
+        "H",
+        "F"
+      ],
+      "name": "DEFAULT OFF",
+      "powerGroupsOn": []
+    }
+  ],
+  "miners": [
+    {
+      "power": 3500,
+      "pduName": 4,
+      "coin": "BTC",
+      "plug": 9,
+      "status": "Success @ 04/17/2026 00:01:02",
+      "algorithm": "SHA-256",
+      "revenue": 7.696192908994012,
+      "hashrate": 200,
+      "powerGroup": "L",
+      "model": "Bitmain Antminer S21 (200T)"
+    },
+    {
+      "hashrate": 420,
+      "powerGroup": "L",
+      "model": "Bitmain Antminer Z15 (420K)",
+      "power": 1510,
+      "pduName": 4,
+      "coin": "ZEC",
+      "plug": 14,
+      "status": "Success @ 04/17/2026 00:01:02",
+      "revenue": 18.987418112663065,
+      "algorithm": "Equihash"
+    },
+    {
+      "pduName": 2,
+      "power": 50,
+      "plug": 2,
+      "powerGroup": "L",
+      "model": "BTC Node",
+      "revenue": 0.1,
+      "status": "Skipped (Non-ASIC) @ 04/17/2026 00:01:02"
+    },
+    {
+      "powerGroup": "M",
+      "hashrate": 37.5,
+      "model": "Canaan Avalon Mini 3 (37.5T)",
+      "plug": 8,
+      "power": 800,
+      "coin": "BTC",
+      "pduName": 4,
+      "status": "Success @ 04/17/2026 00:01:02",
+      "revenue": 1.4430361704363772,
+      "algorithm": "SHA-256"
+    },
+    {
+      "power": 2760,
+      "pduName": 1,
+      "coin": "BTC",
+      "plug": 15,
+      "status": "Success @ 04/17/2026 00:01:02",
+      "algorithm": "SHA-256",
+      "revenue": 4.617715745396407,
+      "hashrate": 120,
+      "powerGroup": "M",
+      "model": "Bitmain Antminer S19k Pro (120T)"
+    },
+    {
+      "status": "Success @ 04/17/2026 00:01:02",
+      "algorithm": "SHA-256",
+      "revenue": 4.617715745396407,
+      "power": 2760,
+      "pduName": 1,
+      "coin": "BTC",
+      "plug": 16,
+      "model": "Bitmain Antminer S19k Pro (120T)",
+      "noDisplay": 1,
+      "hashrate": 120,
+      "powerGroup": "M"
+    },
+    {
+      "hashrate": 2100,
+      "powerGroup": "M",
+      "model": "ElphaPex DG Home 1 (2.1G)",
+      "pduName": 4,
+      "coin": "LTC+DOGE",
+      "power": 620,
+      "plug": 2,
+      "revenue": 1.2884818751679106,
+      "algorithm": "Scrypt",
+      "status": "Success @ 04/17/2026 00:01:02"
+    },
+    {
+      "status": "Success @ 04/17/2026 00:01:02",
+      "revenue": 3.9734238289237465,
+      "algorithm": "RandomX",
+      "power": 1350,
+      "coin": "XMR",
+      "pduName": 3,
+      "plug": 9,
+      "model": "Bitmain Antminer X5 (212K)",
+      "hashrate": 72,
+      "powerGroup": "M"
+    },
+    {
+      "model": "Bitmain Antminer S19k Pro (120T)",
+      "hashrate": 120,
+      "powerGroup": "H",
+      "revenue": 4.617715745396407,
+      "algorithm": "SHA-256",
+      "status": "Success @ 04/17/2026 00:01:02",
+      "pduName": 2,
+      "coin": "BTC",
+      "power": 2760,
+      "plug": 10
+    },
+    {
+      "status": "Success @ 04/17/2026 00:01:02",
+      "revenue": 4.617715745396407,
+      "algorithm": "SHA-256",
+      "power": 2760,
+      "coin": "BTC",
+      "pduName": 3,
+      "plug": 15,
+      "model": "Bitmain Antminer S19k Pro (120T)",
+      "hashrate": 120,
+      "powerGroup": "H"
+    },
+    {
+      "coin": "BTC",
+      "pduName": 3,
+      "power": 2760,
+      "plug": 16,
+      "algorithm": "SHA-256",
+      "revenue": 4.617715745396407,
+      "status": "Success @ 04/17/2026 00:01:02",
+      "hashrate": 120,
+      "powerGroup": "H",
+      "model": "Bitmain Antminer S19k Pro (120T)",
+      "noDisplay": 1
+    },
+    {
+      "hashrate": 1.95,
+      "powerGroup": "H",
+      "model": "Jasminer X16-Q ( 1.95 Gh )",
+      "power": 620,
+      "pduName": 1,
+      "coin": "ETC",
+      "plug": 6,
+      "status": "Success @ 04/17/2026 00:01:02",
+      "revenue": 1.5452814224348863,
+      "algorithm": "ETHASH"
+    },
+    {
+      "plug": 10,
+      "powerGroup": "H",
+      "pduName": 1,
+      "power": 125,
+      "revenue": 0.25,
+      "status": "Skipped (Non-ASIC) @ 04/17/2026 00:01:02",
+      "model": "OPI5s"
+    },
+    {
+      "model": "Goldshell Mini-DOGE III Plus (810 Mh)",
+      "hashrate": 810,
+      "powerGroup": "H",
+      "revenue": 0.49698586613619405,
+      "algorithm": "Scrypt",
+      "status": "Success @ 04/17/2026 00:01:02",
+      "pduName": 2,
+      "coin": "LTC+DOGE",
+      "power": 500,
+      "plug": 5
+    },
+    {
+      "revenue": 1.2884818751679106,
+      "algorithm": "Scrypt",
+      "status": "Success @ 04/17/2026 00:01:02",
+      "plug": 12,
+      "coin": "LTC+DOGE",
+      "pduName": 3,
+      "power": 620,
+      "model": "ElphaPex DG Home 1 (2.1G)",
+      "powerGroup": "H",
+      "hashrate": 2100
+    },
+    {
+      "plug": 13,
+      "powerGroup": "F",
+      "pduName": 1,
+      "power": 500,
+      "revenue": 0.48,
+      "status": "Failed Match @ 04/17/2026 00:01:02",
+      "model": "Box IIs"
+    },
+    {
+      "model": "Osprey v35p",
+      "status": "Failed Match @ 04/17/2026 00:01:02",
+      "revenue": 0.25,
+      "power": 600,
+      "pduName": 2,
+      "powerGroup": "F",
+      "plug": 9
+    },
+    {
+      "power": 500,
+      "pduName": 2,
+      "powerGroup": "F",
+      "plug": 14,
+      "model": "Osprey v33p",
+      "status": "Failed Match @ 04/17/2026 00:01:02",
+      "revenue": 0.2
+    },
+    {
+      "powerGroup": "F",
+      "hashrate": 2.6,
+      "model": "IceRiver RX0 (260 Gh)",
+      "plug": 12,
+      "power": 100,
+      "coin": "RXD",
+      "pduName": 4,
+      "status": "Success @ 04/17/2026 00:01:02",
+      "revenue": 0.19342473912353042,
+      "algorithm": "SHA512256d"
+    },
+    {
+      "hashrate": 1.2,
+      "powerGroup": "F",
+      "model": "iPollo G1 Mini (1.2G)",
+      "power": 120,
+      "pduName": 1,
+      "coin": "GRIN",
+      "plug": 1,
+      "status": "Success @ 04/17/2026 00:01:02",
+      "revenue": 0.20147947775999997,
+      "algorithm": "Cuckatoo32"
+    },
+    {
+      "model": "iPollo V1 Mini SE Plus (400 Mh)",
+      "hashrate": 1.2,
+      "powerGroup": "F",
+      "revenue": 0.9509424138060839,
+      "algorithm": "ETHASH",
+      "status": "Success @ 04/17/2026 00:01:02",
+      "pduName": 1,
+      "coin": "ETC",
+      "power": 120,
+      "plug": 2
+    },
+    {
+      "plug": 4,
+      "coin": "KAS",
+      "pduName": 2,
+      "power": 100,
+      "algorithm": "KHeavyHash",
+      "revenue": 0.18244328716799998,
+      "status": "Success @ 04/17/2026 00:01:02",
+      "powerGroup": "F",
+      "hashrate": 0.4,
+      "model": "IceRiver KS0 Ultra (400G)"
+    },
+    {
+      "status": "Failed Match @ 04/17/2026 00:01:02",
+      "revenue": 0.2,
+      "model": "SSK10",
+      "powerGroup": "DISABLED",
+      "plug": 8,
+      "power": 1200,
+      "pduName": 2
+    },
+    {
+      "model": "Hashimoto",
+      "revenue": 0,
+      "status": "Failed Match @ 04/17/2026 00:01:02",
+      "pduName": 3,
+      "power": 2000,
+      "plug": 3,
+      "powerGroup": "DISABLED"
+    },
+    {
+      "revenue": 0.18244328716799998,
+      "algorithm": "KHeavyHash",
+      "status": "Success @ 04/17/2026 00:01:02",
+      "pduName": 3,
+      "coin": "KAS",
+      "power": 100,
+      "plug": 5,
+      "model": "IceRiver KS0 Ultra (400G)",
+      "hashrate": 0.4,
+      "powerGroup": "F"
+    },
+    {
+      "model": "IceRiver KS1 (1Th/s)",
+      "powerGroup": "F",
+      "hashrate": 1,
+      "status": "Success @ 04/17/2026 00:01:02",
+      "revenue": 0.45610821792,
+      "algorithm": "KHeavyHash",
+      "plug": 8,
+      "power": 600,
+      "pduName": 3,
+      "coin": "KAS"
+    },
+    {
+      "power": 500,
+      "coin": "ALPH",
+      "pduName": 4,
+      "plug": 1,
+      "status": "Success @ 04/17/2026 00:01:02",
+      "revenue": 0.186590545483276,
+      "algorithm": "Blake3",
+      "hashrate": 2,
+      "powerGroup": "F",
+      "model": "IceRiver AL2 Lite (2T)"
+    }
+  ],
+  "actionoid": "1.3.6.1.4.1.850.1.1.3.2.3.3.1.1.6.1.", //SNMP path to our turn device off or on
+  "hysteresis": 0.5,
+  "beta": 1,
+  "statusoid": "1.3.6.1.4.1.850.1.1.3.2.3.3.1.1.4.1.", //SNMP path for status
+  "solar-assistant": "192.168.x.x:1883" // path to solar assistant MQTT streamm
+}
